@@ -1,0 +1,14 @@
+# in .cargo/config.toml
+
+# Enable mem functions which are disabled by default in the compiler_builtins lib
+[unstable]
+build-std-features = ["compiler-builtins-mem"]
+build-std = ["core", "compiler_builtins"] 
+#panic-abort-tests = true
+
+# Use the json file to specify the cargo build whenever we run the "cargo build" command
+[build]
+target = "x86_64-blog_os.json"
+
+[target.'cfg(target_os = "none")']
+runner = "bootimage runner"

@@ -1,0 +1,25 @@
+[package]
+name = "blog_os"
+version = "0.1.0"
+authors = ["Crabbyfeet <crabbypixel@gmail.com>"]
+#panic = "abort" # Disable stack unwinding on panic
+
+[dependencies]
+bootloader = "0.9"  # Adding bootloader to the compiled kernel (independent of C dependencies, just Rust and Assembly)
+volatile = "0.2.6"  # Volatile for preventing deletion of some necessary functions during optimizations
+spin = "0.5.2"      # Spinlocks - macro support
+x86_64 = "0.14"   # x86-64 - in/out CPU instructions abstract
+
+
+# Lazy statics to make the writer functions a global macro (just like println! macro)
+[dependencies.lazy_static]
+version = "1.0"
+features = ["spin_no_std"]
+
+# Recompiles core and compiler_builtin libraries as the standard ones are precompiled
+[unstable]
+build-std = ["core", "compiler_builtins"]
+
+# ISA Debug Device - for clean exit from QEMU
+[package.metadata.bootimage]
+test-args = ["-device", "isa-debug-exit,iobase=0xf4,iosize=0x04"]
