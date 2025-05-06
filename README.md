@@ -76,13 +76,7 @@ Contributions are welcome! Feel free to open issues or submit pull requests for 
 
 This project is open-source and available under the [MIT License](LICENSE).
 
-## Acknowledgements
-
-- Special thanks to [The Rust Programming Language](https://www.rust-lang.org/) for providing an excellent system programming language.
-- [OSDev Wiki](https://os.phil-opp.com/) for offering great resources on OS development.
-- [QEMU](https://www.qemu.org/) for providing an excellent tool for hardware emulation.
-
 ## Disclaimer
 
-This is a learning project and should not be considered for production use. It’s intended to explore operating system development concepts in Rust.
+This is a learning project and should not be considered for production use. It’s intended to explore and learn operating system development concepts in Rust.
 
